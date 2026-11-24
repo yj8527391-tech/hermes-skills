@@ -16,6 +16,16 @@
 | OCR 文本清洗 | `skills/chinese-ocr-txt-cleaning` | 清洗扫描件 / 阅读器 OCR 出来的脏文本，去水印噪声、修断行、还原段落 | 无 |
 | 像素风网页 | `skills/pixel-art-web` | 用字符串点阵加 CSS grid 做像素角色、看板、小动画 | 无 |
 | 飞书发文件 | `skills/feishu-file-send` | 走飞书开放 API 上传并发送文件到群或私聊 | 飞书自建应用 |
+| GitHub 镜像访问 | `skills/github-mirror-access` | 国内被墙时访问与推送 GitHub：镜像探测、API 直连、SSH over 443、开源上架 | `git` `ssh` |
+| Clash 代理复用 | `skills/clash-proxy-bypass` | Windows 上复用本机 Clash 代理抓海外站点，含端口探测与回落 | Clash |
+| 拦页恢复 | `skills/blocked-page-recovery` | 遇到 403/429/paywall/WAF 时的降级抓取路线 | 无 |
+| GB/T 7714 引用 | `skills/academic-citation-format` | 参考文献著录格式、引用序号、正文与文献表对账 | 无 |
+| docx 原位改稿 | `skills/docx-inplace-revision` | 在现成 Word 上原位替换保格式，防编号双层与语义撞车 | `python-docx` |
+| docx 模板填写 | `skills/docx-template-filling` | 往机构模板里原位填内容，填完转 PDF 目检 | `python-docx` `pymupdf` |
+| 程序化 PDF | `skills/pdf-generation` | fpdf2 生成 PDF：中文字体、表格排版、A4 页眉页脚、生成后验证 | `fpdf2` |
+| 万方查题录 | `skills/cnki-wanfang-bibliography` | 知网打不开时走万方补参考文献页码、核题录真伪 | 无 |
+| 网页抓取 | `skills/web-scraper` | 中文站与海外站的通用抓取：评论区、评分、结构化提取 | `playwright` |
+
 
 
 ## 安装

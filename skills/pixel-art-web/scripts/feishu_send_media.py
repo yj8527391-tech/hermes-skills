@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""发图片/文件到飞书：按扩展名自动选接口（给主人看截图用）。
+"""发图片/文件到飞书：按扩展名自动选接口（给使用者看截图用）。
 
 用法:  set FEISHU_CHAT_ID=oc_xxx  →  python feishu_send_media.py <文件...>
 

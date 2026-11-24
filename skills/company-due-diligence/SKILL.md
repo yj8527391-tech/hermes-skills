@@ -6,7 +6,7 @@ author: Alice
 license: MIT
 platforms: [windows]
 read_when:
-  - 主人要“把这堆公司背调一下/筛一下/哪些值得投”
+  - 使用者要“把这堆公司背调一下/筛一下/哪些值得投”
   - 招聘会、双选会、展会名录（几十到上百家）需要筛选排序
   - 合作方/供应商/竞品要做批量背景核查
 metadata:
@@ -45,7 +45,7 @@ metadata:
 
 ## 三、多子 agent 分工（不要自己串行爬）
 
-- **抓取与初判同包**：每个子 agent 拿 30–45 家，跑自家脚本抓完 → 读结果 → 写 CSV。串行爬 124 家约 30 分钟，2 个子 agent 并行约 8 分钟（主人会催“怎么这么慢”）。
+- **抓取与初判同包**：每个子 agent 拿 30–45 家，跑自家脚本抓完 → 读结果 → 写 CSV。串行爬 124 家约 30 分钟，2 个子 agent 并行约 8 分钟（使用者会催“怎么这么慢”）。
 - **CSV schema 固定**（否则合并时要重构）：
   `id,name,est_year,reg_capital,status,business,fit_post,fit_level,risk_score,verdict,reason,evidence`
 - 子 agent 提示词必须给：① 客户/求职者画像；② 对口语义词表；③ 打分规则；④ 路径与字段；⑤“严禁编造，写未检索到”；⑥ 补充查询上限（5–8 次/人，防止把引擎刷封）。
@@ -53,12 +53,12 @@ metadata:
 - **监督**：子 agent 卡在 `process(wait)` 超 3–5 分钟无新增输出 → `action=stop` 接管，自己补抓/自己判，别干等。
 - **归一化**：R1 子 agent 天生爱给“观察”（本次 74/124），把「观察 + 风险≤3 + 对口高/中」视为通过再进 R2，否则被软判定淹掉。
 
-## 四、交付物（主人只看 docx / xlsx）
+## 四、交付物（使用者只看 docx / xlsx）
 
 1. **报告 .docx**：先用 markdown 写（结论先行 → 客户画像 → 方法 → 分层名单 → A/B 档逐家 → 比价基准 → 行动路线 → 简历/自我介绍建议 → 数据来源与局限），再 `python "<脚本目录>/md2docx.py" report.md out.docx`（支持标题/加粗/列表/真表格）。
 2. **全量表 .xlsx**：`templates/build_xlsx.py` 改三个路径即可（表头深色、结论配色、冻结窗格、自动筛选、统计页）。
 3. 表格要求：每家一行可筛选，列里必须有“结论 + 梯队 + 依据 + 证据来源”，别只给分数。
-4. **发到微信**（主人常用验收方式，2026-11 实测）：主人说“发我微信”→ 用 `wechatauto` 的 `wx.ChatWith(会话)` + `wx.SendFiles([xlsx, docx])`；本机只登主号时默认发「微信ClawBot」会话。发完**必须回读 DB**（`db.get_messages(<username>, limit=N)` 里能看到 `<title>文件名</title>`）再告诉主人已发送——`SendFiles` 返回的“成功”不可信。完整坑位见 `windows-gui-automation` → `references/wechat.md`。
+4. **发到微信**（使用者常用验收方式，2026-11 实测）：使用者说“发我微信”→ 用 `wechatauto` 的 `wx.ChatWith(会话)` + `wx.SendFiles([xlsx, docx])`；本机只登主号时默认发「微信ClawBot」会话。发完**必须回读 DB**（`db.get_messages(<username>, limit=N)` 里能看到 `<title>文件名</title>`）再告诉使用者已发送——`SendFiles` 返回的“成功”不可信。完整坑位见 `windows-gui-automation` → `references/wechat.md`。
 
 ## 五、坑位清单
 

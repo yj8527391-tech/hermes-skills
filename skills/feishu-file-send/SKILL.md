@@ -14,7 +14,7 @@ metadata:
 
 ## 何时使用
 
-- 主人要求把文件/图片/文档发到飞书(裸文本可用 hermes send,文件不行)
+- 使用者要求把文件/图片/文档发到飞书(裸文本可用 hermes send,文件不行)
 - `hermes send --to feishu` 报错 `feishu plugin not registered or missing standalone_sender_fn`
 
 ## 关键背景
