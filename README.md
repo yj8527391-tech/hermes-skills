@@ -11,6 +11,12 @@
 | 小六壬占卜（诸葛马前课） | `skills/xiaoliuren-analysis` | 按农历月日时三数起课，推六宫掌诀，用大白话解读事业财运感情，末尾附锐评 | `pytz` `ephem` |
 | 人生报告 · 八字命理深度解读 | `skills/bazi-analysis` | 真太阳时校正排盘、五行能量条形图、大运流年 -5~+5 评分走势、喜用神定位、健康预警 | `pytz` `ephem` |
 | 小red薯爬爬（小红书爬取） | `skills/xiaohongshu-scraper` | Playwright 调本机浏览器登录，抓搜索结果，提取 JS 渲染内容，导出 Excel | `playwright` |
+| 企业背调 | `skills/company-due-diligence` | 招聘会批量背调公司：三轮筛选、分层打分、薪资比价、走场路线 | 无 |
+| Markdown 转 Word | `skills/markdown-to-docx` | md 转 docx 的实测参数，含原位改稿、表格模板填写、避坑清单 | `python-docx` |
+| OCR 文本清洗 | `skills/chinese-ocr-txt-cleaning` | 清洗扫描件 / 阅读器 OCR 出来的脏文本，去水印噪声、修断行、还原段落 | 无 |
+| 像素风网页 | `skills/pixel-art-web` | 用字符串点阵加 CSS grid 做像素角色、看板、小动画 | 无 |
+| 飞书发文件 | `skills/feishu-file-send` | 走飞书开放 API 上传并发送文件到群或私聊 | 飞书自建应用 |
+
 
 ## 安装
 
